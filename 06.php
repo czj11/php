@@ -197,7 +197,7 @@ $handle = fopen($filename, 'a');
 if(fwrite($handle, $somecontent)){
 	echo "ok";
 }; 
-fclose($handle);*/
+fclose($handle);
 
 
 
@@ -208,9 +208,7 @@ $file= "test.txt";
 $handle = fopen($file, "r"); 
 $contents = fread($handle, filesize($file)); 
 echo "$contents";
-fclose($handle);
-
-
+fclose($handle);*/
 
 
 
