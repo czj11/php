@@ -1,0 +1,952 @@
+!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="gb2312" />
+<meta name="applicable-device" content="pc">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+<title>PHP经典算法集锦【经典收藏】_php技巧_脚本之家</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+<meta name="keywords" content="PHP,经典算法" />
+<meta name="description" content="这篇文章主要介绍了PHP经典算法集锦,整理了各种常见的算法,包括排序、查找、遍历、运算等各种常见算法原理与实现技巧,需要的朋友可以参考下" />
+<link rel="alternate" media="only screen and(max-width: 640px)" href="http://m.jb51.net/article/92609.htm" />
+<meta http-equiv="mobile-agent" content="format=html5; url=http://m.jb51.net/article/92609.htm" />
+<meta http-equiv="mobile-agent" content="format=xhtml; url=http://m.jb51.net/article/92609.htm" />
+<script type="text/javascript">
+var tougao="shichen2014";var lmname="PHP编程";
+(function(){var reWriteUrl=function(url){if(url){var Splits=url.split("/"),siteName=window.location.pathname;if(typeof siteName!=="undefined"){return "http://m.jb51.net"+siteName}}};if(/Android|webOS|iPhone|iPad|Windows Phone|iPod|BlackBerry|SymbianOS|Nokia|Mobile/i.test(navigator.userAgent)){var url=window.location.href;var pathname=window.location.pathname;if(url.indexOf("?pc")<0){try{window.location.href=reWriteUrl(url)}catch(e){}}}})();
+</script>
+<link type="text/css" href="/skin/2016/base.css" rel="stylesheet" />
+<link type="text/css" href="/skin/2016/common.css" rel="stylesheet" />
+<script type="text/javascript" src="http://common.jb51.net/jslib/jquery/jquery.min.js"></script>
+<script type=text/javascript src="/js/function.js"></script>
+</head>
+<body>
+<!--head Star -->
+<div id="head">
+  <div class="toolBar">
+  <div class="main">
+    <!--topNav Star -->
+    <div class="topNav clearfix">
+      <ul class="navList fl">
+        <li>
+          <div class="one"><a href="http://www.jb51.net" target="_blank">脚本之家</a></div>
+        </li>
+        <li>
+          <div class="one"><a href="http://www.jb51.net/softs/" target="_blank">软件下载<i class="icon"></i></a></div>
+          <div class="two">
+<a href="/softs/android.html" target="_blank">android软件</a> <a href="/softs/mac.html" target="_blank">MAC软件</a> <a href="/qudong/" target="_blank">驱动下载</a> <a href="/fonts/" target="_blank">字体下载</a> <a href="/dll/" target="_blank">DLL下载</a> </div>
+</li>
+        <li>
+          <div class="one"><a href="/codes/" target="_blank">源码下载<i class="icon"></i></a></div>
+          <div class="two"> <a href="/codes/asp.html" target="_blank">asp源码</a> <a href="/codes/php.html" target="_blank">php源码</a> <a href="/codes/aspnet.html" target="_blank">asp.net源码</a> <a href="/codes/jsp.html" target="_blank">jsp源码</a> <a href="/codes/editor.html" target="_blank">网页编辑器</a> <a href="/codes/list123_1.html" target="_blank">数据库管理</a> <a href="/codes/list124_1.html" target="_blank">常用组件</a> <a href="/jiaoben/" target="_blank">脚本下载</a></div>
+        </li>
+        <li>
+          <div class="one"><a href="http://tools.jb51.net" target="_blank">在线工具<i class="icon"></i></a></div>
+          <div class="two"> <a href="/shouce/" target="_blank">在线手册</a> <a href="/tools/cssyasuo.shtml" target="_blank">CSS格式化</a> <a href="http://tools.jb51.net/code/js" target="_blank">JS格式化</a> <a href="/tools/html-js.htm" target="_blank">Html转化为Js</a> <a href="http://tools.jb51.net/regex/javascript" target="_blank">js正则表达式</a>
+</div>
+        </li>
+        <li>
+          <div class="one"><a href="/w3school/" target="_blank">网页教程基础</a></div>
+        </li>
+			<li>
+          <div class="one"><a href="http://s.jb51.net" target="_blank">服务器常用软件</a></div>
+        </li>
+		<li>
+          <div class="one"><a href="http://m.jb51.net" target="_blank">手机版</a></div>
+          <div class="two"><img src="http://files.jb51.net/images/m.jb51.net.png" data-baiduimageplus-ignore /></div>     
+        </li>
+        <li class="watch">
+          <div class="one"><a href="http://www.jb51.net/about.htm" target="_blank" rel="nofollow" ><i class="icon"></i>关注微信</a></div>
+          <div class="two"><img src="http://files.jb51.net/images/weixin_200.gif" data-baiduimageplus-ignore /></div>
+        </li>
+      </ul>
+      <div class="navUser mt5 fr" id="jb51_topbar" >
+
+      </div>
+    </div>
+    <!--topNav End -->
+  </div>
+</div>
+
+  <div class="main clearfix">
+    <div class="mtb10 clearfix">
+      <div class="logo"><a href="http://www.jb51.net/"><img src="http://www.jb51.net/images/logo.gif" title="脚本之家" alt="脚本之家" /></a></div>
+      <div class="logom fl"><span id="logo_m" class="jbTestPos"></span></div>
+      <div class="logor fr"><span id="logo_r" class="jbTestPos"></span></div>
+    </div>
+<!-- 导航-->
+<DIV class="nav_top clearfix">
+<UL>
+<li><a href="http://www.jb51.net/web/">网页制作</a></li>
+<li><a href="http://www.jb51.net/list/index_1.htm">网络编程</a></li>
+<li><a href="http://www.jb51.net/list/index_96.htm">脚本专栏</a></li>
+<li><a href="http://www.jb51.net/jiaoben/">脚本下载</a></li>
+<li><a href="http://www.jb51.net/list/index_104.htm">数据库</a></li>
+<li><a href="http://www.jb51.net/cms/">CMS教程</a></li>
+<li><a href="http://www.jb51.net/books/">电子书籍</a></li>
+<li><a href="http://www.jb51.net/pingmian/">平面设计</a></li>
+<li><a href="http://www.jb51.net/media/">媒体动画</a></li>
+<li><a href="http://www.jb51.net/os/">操作系统</a></li>
+<li><a href="http://www.jb51.net/yunying/">网站运营</a></li>
+<li><a href="http://www.jb51.net/hack/">网络安全</a></li>
+<li class="last"><a href="http://www.jb51.net/shouce/">在线手册</a></li>
+
+</UL>
+</DIV>
+
+<!--导航结束-->
+<div class="subnav clearfix">
+<ul><li><a href='/list/list_66_1.htm' title="php基础">php基础</a></li>
+<li><a href='/list/list_67_1.htm' title="php技巧">php技巧</a></li>
+<li><a href='/list/list_68_1.htm' title="php实例">php实例</a></li>
+<li><a href='/list/list_69_1.htm' title="php文摘">php文摘</a></li>
+<li><a href='/list/list_146_1.htm' title="php模板">php模板</a></li>
+</ul>
+</div>
+<div class="NavBar clearfix ptb10">
+<div class="fl w690">
+<div class="box mb15 mt10"><i class="icon"></i>您的位置：<a href='/'>首页</a> → <a href="/list/index_1.htm" title="网络编程">网络编程</a> → <a href="/list/list_15_1.htm" title="PHP编程">PHP编程</a> → <a href="/list/list_67_1.htm" title="php技巧">php技巧</a> → 正文内容 PHP经典算法</div>
+</div>
+<div class="fr w300"><div class="search">
+<form action="http://so.jb51.net/cse/search" target="_blank">
+    <input type="hidden" name="s" value="10520733385329581432">
+    <input type="hidden" name="ie" value="gbk">
+    <input type="text" name="q" class="key_input" placeholder="请输入关键词">
+    <input type="submit" value="搜索" class="c_btn">
+</form></div></div>
+  </div>
+</div>
+<!--head End -->
+<div class="main mb10 clearfix">
+<div class="clearfix"><span id="tonglan1" class="jbTestPos"></span></div>
+</div>
+
+<!--content Star -->
+<div id="contents">
+ <div class="main clearfix">
+      <div class="w690 fl">
+      <div class="article-content border">
+      <div class="title">
+            <h1 class="YaHei">PHP经典算法集锦【经典收藏】</h1>
+            <p>作者：懒人  字体：[<a href="javascript:turnbig()">增加</a> <a href="javascript:turnsmall()">减小</a>] 类型：转载 时间：2016-09-14<a href="#comments"> 我要评论</a></p>
+        </div>
+        <div class="art_desc mt10"><div id="art_demo">这篇文章主要介绍了PHP经典算法集锦,整理了各种常见的算法,包括排序、查找、遍历、运算等各种常见算法原理与实现技巧,需要的朋友可以参考下</div></div>
+        <div class="lbd clearfix"><span id="art_up" class="jbTestPos"></span></div>
+        <div id="content">
+<p>本文实例总结了PHP经典算法。分享给大家供大家参考，具体如下：</p>
+<p>1、首先来画个菱形玩玩，很多人学C时在书上都画过，咱们用PHP画下，画了一半。</p>
+<p>思路：多少行for一次，然后在里面空格和星号for一次。</p>
+<div class="jb51code">
+<pre class="brush:php;">
+&lt;&#63;php
+for($i=0;$i&lt;=3;$i++){
+  echo str_repeat("&nbsp;",3-$i);
+  echo str_repeat("*",$i*2+1);
+  echo '&lt;br/&gt;';
+}
+
+</pre>
+</div>
+<p>2、冒泡排序，C里基础算法，从小到大对一组数排序。</p>
+<p>思路：这题从小到大，第一轮排最小，第二轮排第二小，第三轮排第三小，依次类推……</p>
+<div class="jb51code">
+<pre class="brush:php;">
+&lt;&#63;php
+$arr = array(1,3,5,32,756,2,6);
+$len = count($arr);
+for ($i=0;$i&lt;$len-1;$i++){
+  for ($j=$i+1;$j&lt;$len;$j++){
+    if($arr[$i]&gt;$arr[$j]){//从小到大
+      $p = $arr[$i];
+      $arr[$i] = $arr[$j];
+      $arr[$j]= $p;
+    }
+  }
+}
+var_dump($arr);
+
+</pre>
+</div>
+<p>3、杨辉三角，用PHP写。</p>
+<p>思路：每一行的第一位和最后一位是1，没有变化，中间是前排一位与左边一排的和，这种算法是用一个二维数组保存，另外有种算法用一维数组也可以实现，一行 一行的输出，有兴趣去写着玩下。</p>
+<p>1<br />
+1&nbsp;&nbsp; 1<br />
+1&nbsp;&nbsp; 2&nbsp;&nbsp; 1<br />
+1&nbsp;&nbsp; 3&nbsp;&nbsp; 3&nbsp;&nbsp; 1<br />
+1&nbsp;&nbsp; 4&nbsp;&nbsp; 6&nbsp;&nbsp; 4&nbsp;&nbsp; 1<br />
+1&nbsp;&nbsp; 5&nbsp; 10&nbsp; 10&nbsp;&nbsp; 5&nbsp;&nbsp; 1</p>
+<div class="jb51code">
+<pre class="brush:php;">
+&lt;&#63;php
+//每行的第一个和最后一个都为1，写了6行
+ for($i=0; $i&lt;6; $i++) {
+  $a[$i][0]=1;
+  $a[$i][$i]=1;
+ }
+//出除了第一位和最后一位的值，保存在数组中
+ for($i=2; $i&lt;6; $i++) {
+  for($j=1; $j&lt;$i; $j++) {
+   $a[$i][$j] = $a[$i-1][$j-1]+$a[$i-1][$j];
+  }
+ }
+//打印
+ for($i=0; $i&lt;6; $i++){
+  for($j=0; $j&lt;=$i; $j++) {
+  echo $a[$i][$j].'&nbsp;';
+  }
+  echo '&lt;br/&gt;';
+ }
+
+</pre>
+</div>
+<p>4、在一组数中，要求插入一个数，按其原来顺序插入，维护原来排序方式。</p>
+<p>思路：找到比要插入数大的那个位置，替换，然后把后面的数后移一位。</p>
+<div class="jb51code">
+<pre class="brush:php;">
+&lt;&#63;php
+$in = 2;
+$arr = array(1,1,1,3,5,7);
+$n = count($arr);
+//如果要插入的数已经最大，直接打印
+if($arr[$n-1] &lt; $in) {
+  $arr[$n+1] = $in; print_r($arr);
+  }
+for($i=0; $i&lt;$n; $i++) {
+//找出要插入的位置
+  if($arr[$i] &gt;= $in){
+    $t1= $arr[$i];
+    $arr[$i] = $in;
+//把后面的数据后移一位
+    for($j=$i+1; $j&lt;$n+1; $j++) {
+      $t2 = $arr[$j];
+      $arr[$j] = $t1;
+      $t1 = $t2;
+  }
+//打印
+  print_r($arr);
+  die;
+  }
+}
+
+</pre>
+</div>
+<p>5、对一组数进行排序（快速排序算法）。</p>
+<p>思路：通过一趟排序分成两部分，然后递归对这两部分排序，最后合并。</p>
+<div class="jb51code">
+<pre class="brush:php;">
+&lt;&#63;php
+function q($array) {
+  if (count($array) &lt;= 1) {return $array;}
+//以$key为界，分成两个子数组
+  $key = $array[0];
+  $l = array();
+  $r = array();
+//分别进行递归排序，然后合成一个数组
+  for ($i=1; $i&lt;count($array); $i++) {
+  if ($array[$i] &lt;= $key) { $l[] = $array[$i]; }
+  else { $r[] = $array[$i]; }
+ }
+  $l = q($l);
+  $r = q($r);
+  return array_merge($l, array($key), $r);
+}
+$arr = array(1,2,44,3,4,33);
+print_r( q($arr) );
+
+</pre>
+</div>
+<p>6、在一个数组查找你所需元素（二分查找算法）。</p>
+<p>思路：以数组中某个值为界，再递归进行查找，直到结束。</p>
+<div class="jb51code">
+<pre class="brush:php;">
+&lt;&#63;php
+function find($array, $low, $high, $k){
+  if ($low &lt;= $high){
+  $mid = intval(($low+$high)/2);
+    if ($array[$mid] == $k){
+    return $mid;
+  }elseif ($k &lt; $array[$mid]){
+    return find($array, $low, $mid-1, $k);
+    }else{
+    return find($array, $mid+1, $high, $k);
+    }
+  }
+  die('Not have...');
+}
+//test
+$array = array(2,4,3,5);
+$n = count($array);
+$r = find($array,0,$n,5)
+
+</pre>
+</div>
+<p>7、合并多个数组，不用array_merge()，题目来于论坛。</p>
+<p>思路：遍历每个数组，重新组成一个新数组。</p>
+<div class="jb51code">
+<pre class="brush:php;">
+&lt;&#63;php
+function t(){
+  $c = func_num_args()-1;
+  $a = func_get_args();
+  //print_r($a);
+  for($i=0; $i&lt;=$c; $i++){
+    if(is_array($a[$i])){
+      for($j=0; $j&lt;count($a[$i]); $j++){
+        $r[] = $a[$i][$j];
+      }
+    } else {
+      die('Not a array!');
+    }
+  }
+  return $r;
+}
+//test
+print_r(t(range(1,4),range(1,4),range(1,4)));
+echo '&lt;br/&gt;';
+$a = array_merge(range(1,4),range(1,4),range(1,4));
+print_r($a);
+
+</pre>
+</div>
+<p>8、牛年求牛：有一母牛，到4岁可生育，每年一头，所生均是一样的母牛，到15岁绝育，不再能生，20岁死亡，问n年后有多少头牛。（来自论坛）</p>
+<div class="jb51code">
+<pre class="brush:php;">
+&lt;&#63;php
+function t($n) {
+    static $num = 1
+    for($j=1; $j&lt;=$n; $j++){
+        if($j&gt;=4 && $j&lt;15) {$num++;t($n-$j);}
+        if($j==20){$num--;}
+     }
+     return $num;
+}
+//test
+echo t(8);
+
+</pre>
+</div>
+<p>====================其他算法=========================</p>
+<p>冒泡排序 （bubble sort） — O(n2)</p>
+<div class="jb51code">
+<pre class="brush:php;">
+$data = array(3,5,9,32,2,1,2,1,8,5);
+dump($data);
+BubbleSort($data);
+dump($data);
+function BubbleSort(& $arr)
+{
+$limit = count($arr);
+for($i=1; $i&lt;$limit; $i++)
+{
+  for($p=$limit-1; $p&gt;=$i; $p--)
+  {
+  if($arr[$p-1] &gt; $arr[$p])
+  {
+   $temp = $arr[$p-1];
+   $arr[$p-1] = $arr[$p];
+   $arr[$p] = $temp;
+  }
+  }
+}
+}
+function dump( $d )
+{
+echo '&lt;pre&gt;';
+print_r($d);
+echo '&lt;/pre&gt;';
+}
+
+</pre>
+</div>
+<p>插入排序&nbsp;&nbsp; （insertion sort）— O(n2)</p>
+<div class="jb51code">
+<pre class="brush:php;">
+$data = array(6,13,21,99,18,2,25,33,19,84);
+$nums = count($data)-1;
+dump( $data );
+InsertionSort($data,$nums);
+dump( $data );
+function InsertionSort(& $arr,$n )
+{
+for( $i=1; $i&lt;=$n; $i++ )
+{
+  $tmp = $arr[$i];
+  for( $j = $i; $j&gt;0 && $arr[$j-1]&gt;$tmp; $j-- )
+  {
+  $arr[$j] = $arr[$j-1];
+  }
+  $arr[$j] = $tmp;
+}
+}
+function dump( $d )
+{
+echo '&lt;pre&gt;';print_r($d);echo '&lt;/pre&gt;';
+}
+
+</pre>
+</div>
+<p>希 尔排序&nbsp;&nbsp; （shell sort）— O(n log n)</p>
+<div class="jb51code">
+<pre class="brush:php;">
+$data = array(6,13,21,99,18,2,25,33,19,84);
+$nums = count($data);
+dump( $data );
+ShellSort($data,$nums);
+dump( $data );
+function ShellSort(& $arr,$n )
+{
+for( $increment = intval($n/2); $increment &gt; 0; $increment = intval($increment/2) )
+{
+  for( $i=$increment; $i&lt;$n; $i++ )
+  {
+  $tmp = $arr[$i];
+  for( $j = $i; $j&gt;= $increment; $j -= $increment )
+   if( $tmp &lt; $arr[ $j-$increment ] )
+   $arr[$j] = $arr[$j-$increment];
+   else
+   break;
+  $arr[$j] = $tmp;
+  }
+}
+}
+function dump( $d )
+{
+echo '&lt;pre&gt;';print_r($d);echo '&lt;/pre&gt;';
+}
+
+</pre>
+</div>
+<p>快 速排序&nbsp;&nbsp; （quicksort）— O(n log n)</p>
+<div class="jb51code">
+<pre class="brush:php;">
+$data = array(6,13,21,99,18,2,25,33,19,84);
+dump($data);
+quicks($data,0,count($data)-1);
+dump($data);
+function dump( $data){
+echo '&lt;pre&gt;';print_r($data);echo '&lt;/pre&gt;';
+}
+function QuickSort(& $arr,$left,$right)
+{
+$l = $left;
+$r = $right;
+$pivot = intval(($r+$l)/2);
+$p = $arr[$pivot];
+do
+{
+  while(($arr[$l] &lt; $p) && ($l &lt; $right))
+  $l++;
+  while(($arr[$r] &gt; $p) && ($r &gt; $left))
+  $r--;
+  if($l &lt;= $r)
+  {
+  $temp = $arr[$l];
+  $arr[$l] = $arr[$r];
+  $arr[$r] = $temp;
+  $l++;
+  $r--;
+  }
+}
+while($l &lt;= $r);
+if($left &lt; $r)
+  QuickSort(&$arr,$left,$r);
+if($l &lt; $right)
+  QuickSort(&$arr,$l,$right);
+}
+
+</pre>
+</div>
+<p>=================================================</p>
+<p>冒泡排序：两两交换数值，最小的值在最左边，就如最轻的气泡在最上边。对整列数两两交换一次，最小的数在最左边，每次都能得一个在剩下的数中的最小 的数，“冒”出来的数组成一个有序区间，剩下的值组成一无序区间，且有序区间中每一元素值都比无序区间的小。</p>
+<p>快速排序：基准数，左右二个数组，递归调用，合并。</p>
+<p>插入排序：排序区间分成二部分，左边有序，右边无序，从右区间取 第一个元素插入左区间，若此元素比左边区间最右边的元素大，留在原处，若此元素比左 边区间最右边的元素小，则插在最右边元素的原位置，同时最右边元素右移一位，计算器减一，重新和前面的元素比较，直到前面的元素比要插入元素小为止，重复 上述步骤。</p>
+<p>注意区间端点值的处理，及数组的第一个元素下标为0.</p>
+<div class="jb51code">
+<pre class="brush:php;">
+&lt;&#63;php
+//PHP常用排序算法
+function bubblesort ($array)
+{
+$n = count ($array);
+for ($i = 0; $i &lt; $n; $i++)
+{
+for ($j = $n - 2; $j &gt;= $i; $j--) //[0,i-1] [i,n-1]
+{
+if ($array[$j] &gt; $array[$j + 1])
+{
+$temp = $array[$j];
+$array[$j] = $array[$j + 1];
+$array [$j + 1] = $temp;
+}
+}
+}
+return $array;
+}
+$array = array (3,6,1,5,9,0,4,6,11);
+print_r (bubblesort ($array));
+echo '&lt;hr&gt;';
+function quicksort ($array)
+{
+$n = count ($array);
+if ($n &lt;= 1)
+{
+return $array;
+}
+$key = $array['0'];
+$array_r = array ();
+$array_l = array ();
+for ($i = 1; $i &lt; $n; $i++)
+{
+if ($array[$i] &gt; $key)
+{
+$array_r[] = $array[$i];
+}
+else
+{
+$array_l[] = $array[$i];
+}
+}
+$array_r = quicksort ($array_r);
+$array_l = quicksort ($array_l);
+$array = array_merge ($array_l, array($key), $array_r);
+return $array;
+}
+print_r (quicksort ($array));
+echo '&lt;hr&gt;';
+function insertsort ($array)
+{
+$n = count ($array);
+for ($i = 1; $i &lt; $n; $i++) //[0,i-1] [i,n]
+{
+$j = $i - 1;
+$temp = $array[$i];
+while ($array[$j] &gt; $temp)
+{
+$array[$j + 1] = $array[$j];
+$array[$j] = $temp;
+$j--;
+}
+}
+return $array;
+}
+print_r (insertsort ($array));
+&#63;&gt;
+
+</pre>
+</div>
+<p>=======================================</p>
+<div class="jb51code">
+<pre class="brush:php;">
+&lt;&#63;php
+/*
+【插 入排序（一维数组）】
+【基本思想】：每次将一个待排序的数据元素，插入到前面已经排好序的数列中的适当位置，使数列依然有序；直到待排序数据元素 全部插入完为止。
+【示例】：
+[初始关键字] [49] 38 65 97 76 13 27 49
+J=2(38) [38 49] 65 97 76 13 27 49
+J=3(65) [38 49 65] 97 76 13 27 49
+J=4(97) [38 49 65 97] 76 13 27 49
+J=5(76) [38 49 65 76 97] 13 27 49
+J=6(13) [13 38 49 65 76 97] 27 49
+J=7(27) [13 27 38 49 65 76 97] 49
+J=8(49) [13 27 38 49 49 65 76 97]
+*/
+function insert_sort($arr){
+$count = count($arr);
+for($i=1; $i&lt;$count; $i++){
+  $tmp = $arr[$i];
+  $j = $i - 1;
+  while($arr[$j] &gt; $tmp){
+   $arr[$j+1] = $arr[$j];
+   $arr[$j] = $tmp;
+   $j--;
+  }
+}
+return $arr;
+}
+/*
+【选择排序（一维数组）】
+【基 本思想】：每一趟从待排序的数据元素中选出最小（或最大）的一个元素，顺序放在已排好序的数列的最后，直到全部待排序的数据元素排完。
+【示例】：
+[初 始关键字] [49 38 65 97 76 13 27 49]
+第一趟排序后 13 ［38 65 97 76 49 27 49]
+第 二趟排序后 13 27 ［65 97 76 49 38 49]
+第三趟排序后 13 27 38 [97 76 49 65 49]
+第 四趟排序后 13 27 38 49 [49 97 65 76]
+第五趟排序后 13 27 38 49 49 [97 97 76]
+第 六趟排序后 13 27 38 49 49 76 [76 97]
+第七趟排序后 13 27 38 49 49 76 76 [ 97]
+最 后排序结果 13 27 38 49 49 76 76 97
+*/
+function select_sort($arr){
+$count = count($arr);
+for($i=0; $i&lt;$count; $i++){
+  $k = $i;
+  for($j=$i+1; $j&lt;$count; $j++){
+    if ($arr[$k] &gt; $arr[$j])
+      $k = $j;
+}
+  if($k != $i){
+    $tmp = $arr[$i];
+    $arr[$i] = $arr[$k];
+    $arr[$k] = $tmp;
+  }
+}
+return $arr;
+}
+/*
+【冒泡排序（一维数组） 】
+【基本思想】：两两比较待排序数据元素的大小，发现两个数据元素的次序 相反时即进行交换，直到没有反序的数据元素为止。
+【排序过程】：设想被排序的数组R［1..N］垂直竖立，将每个数据元素看作有重量的气泡，根据 轻气泡不能在重气泡之下的原则，
+从下往上扫描数组R，凡扫描到违反本原则的轻气泡，就使其向上"漂浮"，如此反复进行，直至最后任何两个气泡都是 轻者在上，重者在下为止。
+【示例】：
+49 13 13 13 13 13 13 13
+38 49 27 27 27 27 27 27
+65 38 49 38 38 38 38 38
+97 65 38 49 49 49 49 49
+76 97 65 49 49 49 49 49
+13 76 97 65 65 65 65 65
+27 27 76 97 76 76 76 76
+49 49 49 76 97 97 97 97
+*/
+function bubble_sort($array){
+$count = count($array);
+if ($count &lt;= 0) return false;
+for($i=0; $i&lt;$count; $i++){
+  for($j=$count-1; $j&gt;$i; $j--){
+   if ($array[$j] &lt; $array[$j-1]){
+    $tmp = $array[$j];
+    $array[$j] = $array[$j-1];
+    $array[$j-1] = $tmp;
+   }
+  }
+}
+return $array;
+}
+/*
+【快速排序（一 维数组）】
+【基本思想】：在当前无序区R[1..H]中任取一个数据元素作为比较的"基准"(不妨记为X)，
+用此基准将当前无序区划分为 左右两个较小的无序区：R[1..I-1]和R[I 1..H]，且左边的无序子区中数据元素均小于等于基准元素，
+右边的无序子区中数据元素均大 于等于基准元素，而基准X则位于最终排序的位置上，即R[1..I-1]≤X.Key≤R[I 1..H](1≤I≤H)，
+当R[1..I-1] 和R[I 1..H]均非空时，分别对它们进行上述的划分过程，直至所有无序子区中的数据元素均已排序为止。
+【示例】：
+初始关键字 [49 38 65 97 76 13 27 49］
+第一次交换后 ［27 38 65 97 76 13 49 49］
+第二次交换后 ［27 38 49 97 76 13 65 49］
+J向左扫描，位置不变，第三次交换后 ［27 38 13 97 76 49 65 49］
+I向右扫描，位置不变，第四次交换后 ［27 38 13 49 76 97 65 49］
+J向左扫描 ［27 38 13 49 76 97 65 49］
+（一次划分过程）
+初始关键字 ［49 38 65 97 76 13 27 49］
+一趟排序之后 ［27 38 13］ 49 ［76 97 65 49］
+二趟排序之后 ［13］ 27 ［38］ 49 ［49 65］76 ［97］
+三趟排序之后 13 27 38 49 49 ［65］76 97
+最后的排序结果 13 27 38 49 49 65 76 97
+各趟排序之后的状态
+*/
+function quick_sort($array){
+if (count($array) &lt;= 1) return $array;
+$key = $array[0];
+$left_arr = array();
+$right_arr = array();
+for ($i=1; $i&lt;count($array); $i++){
+  if ($array[$i] &lt;= $key)
+   $left_arr[] = $array[$i];
+  else
+   $right_arr[] = $array[$i];
+}
+$left_arr = quick_sort($left_arr);
+$right_arr = quick_sort($right_arr);
+return array_merge($left_arr, array($key), $right_arr);
+}
+/*打印数组全部内容*/
+function display_arr($array){
+$len = count($array);
+for($i = 0; $i&lt;$len; $i++){
+  echo $array[$i].' ';
+}
+echo '&lt;br /&gt;';
+}
+/*
+几种排序算法的比较和选择
+1. 选取排序方法需要考虑的因素：
+(1) 待排序的元素数目n；
+(2) 元素本身信息量的大小；
+(3) 关键字的结构及其分布情况；
+(4) 语言工具的条件，辅助空间的大小等。
+2. 小结：
+(1) 若n较小(n &lt;= 50)，则可以采用直接插入排序或直接选择排序。由于直接插入排序所需的记录移动操作较直接选择排序多，因而当记录本身信息量较大时，用直接选择排序较 好。
+(2) 若文件的初始状态已按关键字基本有序，则选用直接插入或冒泡排序为宜。
+(3) 若n较大，则应采用时间复杂度为O(nlog2n)的排序方法：快速排序、堆排序或归并排序。 快速排序是目前基于比较的内部排序法中被认为是最好的方法。
+(4) 在基于比较排序方法中，每次比较两个关键字的大小之后，仅仅出现两种可能的转移，因此可以用一棵二叉树来描述比较判定过程，由此可以证明：当文件的n个关 键字随机分布时，任何借助于"比较"的排序算法，至少需要O(nlog2n)的时间。
+(5) 当记录本身信息量较大时，为避免耗费大量时间移动记录，可以用链表作为存储结构。
+*/
+/*排序测试*/
+$a = array('12','4','16','8','13','20','5','32');
+echo 'The result of insert sort:';
+$insert_a = insert_sort($a);
+display_arr($insert_a);
+echo 'The result of select sort:';
+$select_a = select_sort($a);
+display_arr($select_a);
+echo 'The result of bubble sort:';
+$bubble_a = bubble_sort($a);
+display_arr($bubble_a);
+echo 'The result of bubble sort:';
+$quick_a = quick_sort($a);
+display_arr($quick_a);
+&#63;&gt;
+
+</pre>
+</div>
+<div class="jb51code">
+<pre class="brush:php;">
+/**
+ * 排列组合
+ * 采用二进制方法进行组合的选择，如表示5选3时，只需有3位为1就可以了，所以可得到的组合是 01101 11100 00111 10011 01110等10种组合
+ *
+ * @param 需要排列的数组 $arr
+ * @param 最小个数 $min_size
+ * @return 满足条件的新数组组合
+ */
+function pl($arr,$size=5) {
+ $len = count($arr);
+ $max = pow(2,$len);
+ $min = pow(2,$size)-1;
+ $r_arr = array();
+ for ($i=$min; $i&lt;$max; $i++){
+  $count = 0;
+  $t_arr = array();
+  for ($j=0; $j&lt;$len; $j++){
+  $a = pow(2, $j);
+  $t = $i&$a;
+  if($t == $a){
+   $t_arr[] = $arr[$j];
+   $count++;
+  }
+  }
+  if($count == $size){
+  $r_arr[] = $t_arr;
+  }
+ }
+ return $r_arr;
+ }
+$pl = pl(array(1,2,3,4,5,6,7),5);
+var_dump($pl);
+//递归算法
+//阶乘
+function f($n){
+  if($n == 1 || $n == 0){
+    return 1;
+  }else{
+    return $n*f($n-1);
+  }
+}
+echo f(5);
+//遍历目录
+function iteral($path){
+  $filearr = array();
+  foreach (glob($path.'\*') as $file){
+    if(is_dir($file)){
+      $filearr = array_merge($filearr,iteral($file));
+    }else{
+      $filearr[] = $file;
+    }
+  }
+  return $filearr;
+}
+var_dump(iteral('d:\www\test'));
+
+</pre>
+</div>
+<p>更多关于PHP相关内容感兴趣的读者可查看本站专题：《<a target="_blank" href="http://www.jb51.net/Special/614.htm">PHP数据结构与算法教程</a>》、《<a target="_blank" href="http://www.jb51.net/Special/111.htm">php程序设计算法总结</a>》、《<a target="_blank" href="http://www.jb51.net/Special/144.htm">php加密方法总结</a>》、《<a target="_blank" href="http://www.jb51.net/Special/459.htm">PHP编码与转码操作技巧汇总</a>》、《<a target="_blank" href="http://www.jb51.net/Special/43.htm">php面向对象程序设计入门教程</a>》、《<a target="_blank" href="http://www.jb51.net/Special/630.htm">PHP数学运算技巧总结</a>》、《<a target="_blank" href="http://www.jb51.net/Special/623.htm">PHP数组(Array)操作技巧大全</a>》、《<a target="_blank" href="http://www.jb51.net/Special/47.htm">php字符串(string)用法总结</a>》、《<a target="_blank" href="http://www.jb51.net/Special/180.htm">php正则表达式用法总结</a>》、及《<a target="_blank" href="http://www.jb51.net/Special/231.htm">php常见数据库操作技巧汇总</a>》</p>
+<p>希望本文所述对大家PHP程序设计有所帮助。</p>
+
+</div><!--endmain-->
+<div class="art_xg">
+<h4>您可能感兴趣的文章:</h4><ul><li><a href="/article/103883.htm" title="Java实现解数独的小程序" target="_blank">Java实现解数独的小程序</a></li><li><a href="/article/86418.htm" title="JavaScript遍历求解数独问题的主要思路小结" target="_blank">JavaScript遍历求解数独问题的主要思路小结</a></li><li><a href="/article/67542.htm" title="python实现数独算法实例" target="_blank">python实现数独算法实例</a></li><li><a href="/article/62558.htm" title="Go语言实现的最简单数独解法" target="_blank">Go语言实现的最简单数独解法</a></li><li><a href="/article/48519.htm" title="c++递归解数独方法示例" target="_blank">c++递归解数独方法示例</a></li><li><a href="/article/25145.htm" title="JQuery开发的数独游戏代码" target="_blank">JQuery开发的数独游戏代码</a></li><li><a href="/article/97054.htm" title="PHP实现的方程求解示例分析" target="_blank">PHP实现的方程求解示例分析</a></li><li><a href="/article/66065.htm" title="php编写的抽奖程序中奖概率算法" target="_blank">php编写的抽奖程序中奖概率算法</a></li><li><a href="/article/27064.htm" title="php 大数据量及海量数据处理算法总结" target="_blank">php 大数据量及海量数据处理算法总结</a></li><li><a href="/article/48818.htm" title="适用于抽奖程序、随机广告的PHP概率算法实例" target="_blank">适用于抽奖程序、随机广告的PHP概率算法实例</a></li><li><a href="/article/58557.htm" title="php中最简单的字符串匹配算法" target="_blank">php中最简单的字符串匹配算法</a></li><li><a href="/article/28482.htm" title="php数字转汉字代码(算法)" target="_blank">php数字转汉字代码(算法)</a></li><li><a href="/article/111448.htm" title="PHP实现的数独求解问题示例" target="_blank">PHP实现的数独求解问题示例</a></li></ul>
+</div>
+<div class="lbd clearfix">
+<span id="art_down" class="jbTestPos"></span>
+</div>
+<div id="shoucang"></div>
+<div class="tags mt10">
+<strong>Tags：</strong><a href="http://common.jb51.net/tag/PHP/1.htm" target="_blank" title="搜索关于PHP的文章">PHP</a> <a href="http://common.jb51.net/tag/%E7%AE%97%E6%B3%95/1.htm" target="_blank" title="搜索关于算法的文章">算法</a> 
+</div>
+<DIV class="relatedarticle clearfix mt5">
+<H2>相关文章</H2>
+<ul><li><span>2010-05-05</span><a href="/article/23636.htm" title="PHP Zip压缩 在线对文件进行压缩的函数" target="_blank">PHP Zip压缩 在线对文件进行压缩的函数</a></li><li><span>2008-09-09</span><a href="/article/15744.htm" title="php chr() ord()中文截取乱码问题解决方法" target="_blank">php chr() ord()中文截取乱码问题解决方法</a></li><li><span>2016-08-08</span><a href="/article/91281.htm" title="简单的pgsql pdo php操作类实现代码" target="_blank">简单的pgsql pdo php操作类实现代码</a></li><li><span>2007-11-11</span><a href="/article/12910.htm" title="PHP 文件上传进度条的两种实现方法的代码" target="_blank">PHP 文件上传进度条的两种实现方法的代码</a></li><li><span>2009-03-03</span><a href="/article/17522.htm" title="php 静态化实现代码" target="_blank">php 静态化实现代码</a></li><li><span>2015-03-03</span><a href="/article/61670.htm" title="php实现四舍五入的方法小结" target="_blank">php实现四舍五入的方法小结</a></li><li><span>2007-04-04</span><a href="/article/9351.htm" title="PHP实现MVC开发得最简单的方法——模型" target="_blank">PHP实现MVC开发得最简单的方法——模型</a></li><li><span>2011-01-01</span><a href="/article/25918.htm" title="PHP备份/还原MySQL数据库的代码" target="_blank">PHP备份/还原MySQL数据库的代码</a></li><li><span>2016-02-02</span><a href="/article/79693.htm" title="对比分析php中Cookie与Session的异同" target="_blank">对比分析php中Cookie与Session的异同</a></li><li><span>2014-03-03</span><a href="/article/47472.htm" title="PHP static局部静态变量和全局静态变量总结" target="_blank">PHP static局部静态变量和全局静态变量总结</a></li></ul>
+</DIV>
+<div class="lbd clearfix mt5">
+<span id="art_down2" class="jbTestPos"></span>
+</div>
+<a href="#comments"></a>
+<div id="comments">
+<H2>最新评论</H2>
+<div class="pd5"><div id="SOHUCS" sid="art_92609"></div></div>
+</div>
+      </div><!--endborder-->
+      </div><!--end fl-->
+      
+<div class="w300 fr">
+<div class="r300 clearfix"><span id="side_up" class="jbTestPos"></span></div>
+<DIV class="tabTitleBar mt10 bgf borderTblue">
+<DIV class="borderTnone pb10 YaHei">
+<H4 class="blue">大家感兴趣的内容</H4>
+<UL class="newsList newList-in">
+<li><EM class="no1">1</EM><a href="/article/30489.htm" title="php中json_decode()和json_encode()的使用方法" target="_blank">php中json_decode()和json_encod</a></li><li><EM class="no2">2</EM><a href="/article/35077.htm" title="PHP 数组和字符串互相转换实现方法" target="_blank">PHP 数组和字符串互相转换实现方</a></li><li><EM class="no3">3</EM><a href="/article/14530.htm" title="php中iconv函数使用方法" target="_blank">php中iconv函数使用方法</a></li><li><EM class="no4">4</EM><a href="/article/34745.htm" title="PHP中使用cURL实现Get和Post请求的方法" target="_blank">PHP中使用cURL实现Get和Post请求</a></li><li><EM class="no5">5</EM><a href="/article/30810.htm" title="php日期转时间戳,指定日期转换成时间戳" target="_blank">php日期转时间戳,指定日期转换成</a></li><li><EM class="no6">6</EM><a href="/article/19011.htm" title="PHP 页面跳转到另一个页面的多种方法方法总结" target="_blank">PHP 页面跳转到另一个页面的多种</a></li><li><EM class="no7">7</EM><a href="/article/21228.htm" title="PHPMyadmin 配置文件详解(配置)" target="_blank">PHPMyadmin 配置文件详解(配置)</a></li><li><EM class="no8">8</EM><a href="/article/15174.htm" title="php下intval()和(int)转换使用与区别" target="_blank">php下intval()和(int)转换使用与</a></li><li><EM class="no9">9</EM><a href="/article/15330.htm" title="特详细的PHPMYADMIN简明安装教程" target="_blank">特详细的PHPMYADMIN简明安装教程</a></li><li><EM class="no10">10</EM><a href="/article/28864.htm" title="PHP中文处理 中文字符串截取(mb_substr)和获取中文字符串字数" target="_blank">PHP中文处理 中文字符串截取(mb_</a></li>
+</UL>
+</DIV>
+</DIV>
+<div class="r300 clearfix mt10"><span id="idctu" class="jbTestPos"></span></div>
+<DIV class="tabTitleBar mt10 bgf borderTblue">
+<DIV class="borderTnone pb10 YaHei">
+<H4 class="blue">最近更新的内容</H4>
+<UL class="newsListA">
+<ul><li><a href="/article/104698.htm" title="PHP数字前补0的自带函数sprintf 和number_format的用法(详解)" target="_blank">PHP数字前补0的自带函数sprintf 和number</a></li><li><a href="/article/92424.htm" title="PHP入门教程之上传文件实例详解" target="_blank">PHP入门教程之上传文件实例详解</a></li><li><a href="/article/14089.htm" title="用php获取远程图片并把它保存到本地的代码" target="_blank">用php获取远程图片并把它保存到本地的代码</a></li><li><a href="/article/105684.htm" title="php使用gd2绘制基本图形示例(直线、圆、正方形)" target="_blank">php使用gd2绘制基本图形示例(直线、圆、正</a></li><li><a href="/article/101886.htm" title="php实现的简单中文验证码功能示例" target="_blank">php实现的简单中文验证码功能示例</a></li><li><a href="/article/85907.htm" title="JSON字符串传到后台PHP处理问题的解决方法" target="_blank">JSON字符串传到后台PHP处理问题的解决方法</a></li><li><a href="/article/21639.htm" title="PHP 获取目录下的图片并随机显示的代码" target="_blank">PHP 获取目录下的图片并随机显示的代码</a></li><li><a href="/article/38190.htm" title="使用迭代器 遍历文件信息的详解" target="_blank">使用迭代器 遍历文件信息的详解</a></li><li><a href="/article/27452.htm" title="使用php shell命令合并图片的代码" target="_blank">使用php shell命令合并图片的代码</a></li><li><a href="/article/25417.htm" title="php购物网站支付paypal使用方法" target="_blank">php购物网站支付paypal使用方法</a></li></ul>
+</UL>
+</DIV>
+</DIV>   
+<div class="r300 clearfix mt10"><span id="idctu1" class="jbTestPos"></span></div>
+<DIV class="tabTitleBar mt10 bgf borderTblue">
+<DIV class="borderTnone pb10 YaHei">
+<H4 class="blue">常用在线小工具</H4>
+<ul class="newsListA"><span id="bctools" class="jbTestPos"></span></ul>
+</DIV>
+</DIV>
+<div class="r300 clearfix mt10" id="idctu2"><span id="idctu2" class="jbTestPos"></span></div>
+<div class="mt10 rFixedBox">
+<span id="r_2" class="jbTestPos"></span>
+</div>
+      
+      
+      </div><!--end fr-->
+      </div>
+</div><!--end content-->
+<div id="footer">
+<div class="main clearfix">
+<p>
+<a href="http://www.jb51.net/about.htm" target="_blank">关于我们</a> - 
+<a href="http://www.jb51.net/support.htm" target="_blank">广告合作</a> - 
+<a href="http://www.jb51.net/linkus.htm" target="_blank">联系我们</a> -  
+<a href="http://www.jb51.net/sm.htm" target="_blank">免责声明</a> -  
+<a href="http://www.jb51.net/sitemap.htm" target="_blank">网站地图</a> - 
+<a href="tencent://message/?uin=461478385&Site=http://www.jb51.net" target="_blank">投诉建议</a> - 
+<a href="http://www.jb51.net/up.htm" target="_blank">在线投稿</a>
+</p>
+<p>&copy;CopyRight 2006-2017 JB51.Net Inc All Rights Reserved. 脚本之家 版权所有</p>
+</div>
+</div><!--end footer-->
+<link type="text/css" rel="stylesheet" href="/jslib/syntaxhighlighter/styles/shCore.css" />
+<link type="text/css" rel="Stylesheet" href="/jslib/syntaxhighlighter/styles/shThemeDefault.css" />
+<script type="text/javascript" src="/jslib/syntaxhighlighter/scripts/shCore.js"></script>
+<script type="text/javascript" src="/jslib/syntaxhighlighter/scripts/shAutoloader.js"></script>
+<script type="text/javascript">
+(function(){
+    var bp = document.createElement('script');
+    bp.src = '//push.zhanzhang.baidu.com/push.js';
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+if (top.location != self.location)top.location=self.location;
+$(function(){
+	$('#content').find('img').each(function(){
+        var img = this;
+        if (img.width >= 650){
+            img.style.width = "650px";
+            img.style.height = "auto";
+            //$(img).removeAttr('height');
+            var aTag = document.createElement('a');
+            aTag.href = img.src;
+			aTag.target="_blank";
+            $(aTag).addClass('bPic')
+            .insertAfter(img).append(img)
+          }
+    });
+	$(window).scroll(function()
+    {	
+    	//rFixedBox跟随滚动
+    	var h = $(window).height();
+        var top = $(window).scrollTop();
+    	var rFixedBox = $('.rFixedBox').prev().offset();
+        var fixedTop = rFixedBox.top;
+		
+        if(top>=fixedTop+344)
+        {
+			var h1 = parseInt($('#content').children('.main').height());
+			if(parseInt(top) + 340 < h1){
+				$('.rFixedBox').css({'position':'fixed','top': 0});
+			}else{
+				$('.rFixedBox').css({'position':'absolute','top': h1-510});
+			}
+        }
+        else
+        {
+            $('.rFixedBox').css({'position':'static', 'top':0});   
+        }	
+       /* return true;*/
+    });
+/*$(document).ready(function() {
+  $("#content img").unveil();
+});	*/
+SyntaxHighlighter.autoloader(
+	'applescript			/jslib/syntaxhighlighter/scripts/shBrushAppleScript.js',
+	'actionscript3 as3		/jslib/syntaxhighlighter/scripts/shBrushAS3.js',
+	'bash shell				/jslib/syntaxhighlighter/scripts/shBrushBash.js',
+	'coldfusion cf			/jslib/syntaxhighlighter/scripts/shBrushColdFusion.js',
+	'cpp c					/jslib/syntaxhighlighter/scripts/shBrushCpp.js',
+	'obj-c objc				/jslib/syntaxhighlighter/scripts/shBrushObjC.js',
+	'c# c-sharp csharp		/jslib/syntaxhighlighter/scripts/shBrushCSharp.js',
+	'css					/jslib/syntaxhighlighter/scripts/shBrushCss.js',
+	'delphi pascal			/jslib/syntaxhighlighter/scripts/shBrushDelphi.js',
+	'diff patch pas			/jslib/syntaxhighlighter/scripts/shBrushDiff.js',
+	'erl erlang				/jslib/syntaxhighlighter/scripts/shBrushErlang.js',
+	'groovy					/jslib/syntaxhighlighter/scripts/shBrushGroovy.js',
+	'haxe hx				/jslib/syntaxhighlighter/scripts/shBrushHaxe.js',
+	'java					/jslib/syntaxhighlighter/scripts/shBrushJava.js',
+	'jfx javafx				/jslib/syntaxhighlighter/scripts/shBrushJavaFX.js',
+	'js jscript javascript	/jslib/syntaxhighlighter/scripts/shBrushJScript.js',
+	'perl pl				/jslib/syntaxhighlighter/scripts/shBrushPerl.js',
+	'php					/jslib/syntaxhighlighter/scripts/shBrushPhp.js',
+	'text plain				/jslib/syntaxhighlighter/scripts/shBrushPlain.js',
+	'py python				/jslib/syntaxhighlighter/scripts/shBrushPython.js',
+	'ruby rails ror rb		/jslib/syntaxhighlighter/scripts/shBrushRuby.js',
+	'scala					/jslib/syntaxhighlighter/scripts/shBrushScala.js',
+	'sql					/jslib/syntaxhighlighter/scripts/shBrushSql.js',
+	'vb vbnet				/jslib/syntaxhighlighter/scripts/shBrushVb.js',
+	'ps powershell			/jslib/syntaxhighlighter/scripts/shBrushPowerShell.js',
+	'xml xhtml xslt html	/jslib/syntaxhighlighter/scripts/shBrushXml.js'
+);
+SyntaxHighlighter.all();
+});
+var ourl="";
+</script>
+<script type="text/javascript" src='http://common.jb51.net/js/jbLoader.js'></script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<div id="tongji">
+<script type="text/javascript" src="http://common.jb51.net/inc/tongji.js"></script>
+<script charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+window.changyan.api.config({
+appid: 'cyrHH3dwi',
+conf: 'prod_1dc5dc80970106099d43fe242b7465fc'
+});
+</script>
+</div>
+<script type="text/javascript" src="http://www.jb51.net/pl.asp?id=92609"></script>
+</body>
+</html>
+<!-- published at 2017/6/28 20:05:22By dxycms qq:461478385  -->

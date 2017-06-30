@@ -9,7 +9,7 @@
 关闭mysql连接
 
  */
-
+header("content-type:text/php;charset=utf-8");
 class Mysql{
 private $host;
 private $user;
@@ -19,13 +19,13 @@ private $charset;
 //保存连接的数据
 private $conn = null;
 
-public function__construct(){
+public function __construct(){
 			//在构造方法里读取配置文件
 			//根据配置文件来设置私有属性
 			//此处没有配置文件，直接赋值	
 			$this->host = 'localhost:8080';
 			$this->user = 'root';
-			$this->pwd = null;
+			$this->pwd = 'null';
 			$this->dbname = 'test';
 			$this->charset = 'urf8';
 
@@ -52,7 +52,7 @@ public function switchdb($db){
 }
 //负责设置字符集
 public function setchar($char){
-			$sql = 'ser name'.$char;
+			$sql = 'set name'.$char;
 			$this->query($sql);
 }
 //负责发送sql
@@ -103,7 +103,7 @@ public function close(){
 
 $mysql = new Mysql();
 print_r($mysql);
-
+/*
 //查询多行
 $sql = 'select * from stu ';
 print_r($mysql->getall($sql));
@@ -131,8 +131,7 @@ if($mysql->query($sql)）{
 $mysql->close();
 
 
-
-}
+*/
 
 
 
