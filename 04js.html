@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+
+	.test1{
+		background: red;
+	}
+	.test2{
+		background: green;
+	}
+</style>
+<script>
+	function t(){
+		var div = document.getElementsByTagName('div')[0];
+		if(div.className.indexOf('test1') >= 0){
+		    div.className = 'test2';
+		}else{
+			div.className = 'test1';
+		}
+		div.style.width =parseInt(div.style.width)+5+"px";
+		div.style.height =parseInt(div.style.height)+5+"px";
+
+
+		div.style.borderBottomWidth = parseInt(div.style.borderBottomWidth)+10+"px";
+
+	}
+
+</script>
+</head>
+<body>
+	<div class="test1" onclick="t();" style="height: 300px;width: 300px; border-bottom:1px solid black;">
+	点击：1.红绿交替
+          2.宽高加5px
+          3.下边框加10px  
+	</div>	
+
+</body>
+</html>

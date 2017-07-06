@@ -9,7 +9,7 @@ echo fread($source,100);
 
 
 
-$source = fopen('01.txt','r+');
+$source = fopen('01.txt','r+');//头部无法追加
 echo fread($source,'50');
 echo fwrite($source, "hahhahahahhah")?"yes":"false" ;
 

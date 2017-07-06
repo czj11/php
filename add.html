@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" value="添加一系列东西" onclick="t1();">
+	<input type="button" value="alert并添加一个*" onclick="t2();">
+	<ul></ul>
+</body>
+<script>
+function t1(){
+	var ul = document.getElementsByTagName("ul")[0];
+	ul.innerHTML = '<li>小</li><li>猫</li><li>物</li><li>化</li>';
+}
+function t2(){
+	var ul = document.getElementsByTagName('ul')[0];
+	alert(ul);
+	ul.innerHTML += '<li>欢</li><li>迎</li>';
+}
+
+</script>
+</html>

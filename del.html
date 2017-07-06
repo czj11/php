@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+	function del(){
+		var lis = window.document.getElementsByTagName('li');
+		var lastli = lis[lis.length-1];
+		lastli.parentNode.removeChild(lastli);
+
+	}
+	function add(){
+		var p = window.document.createElement('p');//创建p标签
+		var txt = document.createTextNode('我是p标签');//创建文本
+		
+		window.document.getElementsByTagName('div')[0].appendChild(p);
+
+
+
+
+
+		
+		alert(document.getElementsByTagName(p)[0]);
+        //window.document.getElementsByTagName(p)[0].appendChild(txt);
+        p.appendChild(txt);
+	}
+
+
+
+	</script>
+
+
+</head>
+<body>
+	<input type="button" value="删除最后一个li" onclick="del();">
+	<input type="button" value="增加一个*" onclick="add();">
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+	<div>
+		
+	</div>
+</body>
+</html>

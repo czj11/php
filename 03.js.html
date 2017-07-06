@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+	function ch(){
+		var test1 = document.getElementById('test1');
+		if (test1.src.indexOf("up") >= 0) {
+			test1.src = "down.png";
+		}else{
+			test1.src = 'up.png';
+		}
+		
+	}
+
+	</script>
+</head>
+<body>
+	<img id="test1" src="./down.png" alt="" onclick="ch();">
+	<h1>找对象</h1>
+	<div id="t1">
+	<p>p1</p>
+	<p>p2</p>
+	<p>p3</p>
+
+	</div>
+	<div class="t2">我是div=t2</div>
+	<input type="text" name="username" id="" value="zej">
+</body>
+
+<script>
+//id查询对象
+console.log(window.document.getElementById('t1'));
+
+
+//标签查询对象,即使是一个对象也返回对象集合
+console.log(window.document.getElementsByTagName('p').length);
+var ps = document.getElementsByTagName('p');
+ps[0].style.background = 'green';
+
+
+//name查询对象,对象集合
+alert(window.document.getElementsByName('username')[0].type);
+var us = window.document.getElementsByName('username')[0];
+us.value = 'man';
+
+
+//通过类名查找
+alert(window.document.getElementsByClassName('t2')[0].style.background = 'red');
+
+
+
+
+//儿子节点
+alert(window.document.getElementById('t1').childNodes.length);//包含空白节点
+alert(window.document.getElementById('t1').children.length);//不包含空白节点
+alert(window.document.getElementById('t1').firstChild);//不包含空白节点
+
+
+
+//父节点
+document.getElementsByTagName('p')[2].parentNode.style.border="1px solid red ";
+</script>
+</html>
