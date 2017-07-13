@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			width: 300px;
+			height:300px;
+			border:1px solid red;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<p>
+			<ul>
+				<li>结构，样式，行为分离</li>
+			</ul>
+		</p>
+	</div>
+</body>
+<script>
+/*document.getElementsByTagName('div')[0].onclick = function(){
+	document.getElementsByTagName('div')[0].style.border = '10px solid green';
+};*/
+document.getElementsByTagName('div')[0].onclick = function(){
+	this.style.border = '10px solid green';
+};
+</script>
+</html>

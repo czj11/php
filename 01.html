@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1>定时器</h1>
+	<input type="button" name="time" value="5"  >
+	<img src="boom.png" alt="">
+</body>
+
+
+
+
+
+<script>
+function a(){
+	var inp = document.getElementsByTagName('time');
+	var time = parseInt(inp.value)-1;
+	inp.value = time;
+/*if (time==0) {
+	document.getElementsByTagName('img').src = 'warm.png';
+}*/
+}
+
+setInterval('a()',1000);
+</script>
+</html>

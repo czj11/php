@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+
+	function createXHR(){
+		var xhr = null;
+		if(window.XMLHttpRequest){
+			xhr = new XMLHttpRequest();
+		}else if(window.ActiveXObject){
+			xhr = new ActiveXObject('Microsoft.XMLHTTP');
+		}
+		return xhr;
+	}
+
+
+
+function ajaxreg(){
+	/*1.打开到后台服务器post连接
+	  2.收集表单
+	  3.发送数据
+	  4.监听，回调
+	*/
+	var xhr = createXHR();
+	xhr.open('POST','./13.php','true');
+	xhr.onreadystatechange = function(){
+		if (this.readyState == 4) {
+			alert(this.responseText);
+		}
+	}
+
+
+	var un = document.getElementsByName('username')[0].value;
+	var em = document.getElementsByName('email')[0].value;
+	xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+	xhr.send('username='+un+'&email='+em);
+
+
+ 	 
+
+
+
+	return false;
+}
+
+	</script>
+</head>
+<body>
+	<div id="regres">
+		<form action="13.php" onsubmit='return ajaxreg();'>
+			<p><input type="text" name="username" id=""></p>
+			<p><input type="text" name="email" id=""></p>
+			<p><input type="submit" value="提交" id=""></p>
+		</form>
+		
+	</div>
+</body>
+</html>

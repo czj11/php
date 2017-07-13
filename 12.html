@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax</title>
+	<script>
+	function createXHR(){
+		var xhr = null;
+		if(window.XMLHttpRequest){
+			xhr = new XMLHttpRequest();
+		}else if(window.ActiveXObject){
+			xhr = new ActiveXObject('Microsoft.XMLHTTP');
+		}
+		return xhr;
+	}
+
+		//制造xhr;
+		var xhr = createXHR();
+	function vote(){
+
+		//打开链接;
+		xhr.open('Get','./12.php','true');
+		//发请求
+		xhr.send(null);
+		//获得返回信息
+		//alert(xhr.responseText);
+		//绑定函数
+
+		
+		xhr.onreadystatechange = function(){
+			//请求成功只代表http请求完成
+			//只有200 ok 才是有意义的成功
+		if(this.readyState == 4 && this.status == 200){
+			//alert('请求成功了');
+			var str = '';
+			str = '状态码是:'+this.status + '<br/>';
+			str = str +"状态文字是:"+this.statusText+'<br/>';
+			str = str +'返回类型是:'+this.getResponseHeader('Content-Type')+'<br/>';
+			str = str+ '返回内容：'+this.responseText +"<br/>";
+			str = str+ '全部信息：'+this.getAllResponseHeaders();
+			//console.log(str);
+			document.getElementById('wait').innerHTML=str;
+/*			if (this.responseText == '1') {
+				//alert('投票成功');
+				document.getElementById('wait').innerHTML = "投票成功";
+			}else if (this.responseText == '0') {
+				document.getElementById('wait').innerHTML = '投票失败';
+			}else{
+				document.getElementById('wait').innerHTML = this.responseText;
+			}*/
+		}
+
+/*		var wt = document.getElementById('wait');
+		wt.innerHTML = wt.innerHTML +'现在是'+ this.readyState +"<br/>";*/
+		}
+		//alert('hello');
+	}
+function stop(){
+	xhr.abort();
+
+}
+
+
+
+	</script>
+</head>
+<body>
+	<div>
+		<p> <img src="up.png" alt=""> </p>
+		<p> <input type="button" value="投票" onclick="vote();"> </p>
+		<p> <input type="button" value="中断" onclick="stop();"> </p>
+	</div>
+	<div id="wait"></div>
+</body>
+</html>

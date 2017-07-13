@@ -15,14 +15,8 @@
 		var txt = document.createTextNode('我是p标签');//创建文本
 		
 		window.document.getElementsByTagName('div')[0].appendChild(p);
-
-
-
-
-
-		
-		alert(document.getElementsByTagName(p)[0]);
-        //window.document.getElementsByTagName(p)[0].appendChild(txt);
+		// alert(document.getElementsByTagName("p")[0]);
+        window.document.getElementsByTagName("p")[0].appendChild(txt);
         p.appendChild(txt);
 	}
 

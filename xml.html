@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>xml</title>
+</head>
+<script>
+	function createXHR(){
+		var xhr = null;
+		if(window.XMLHttpRequest){
+			xhr = new XMLHttpRequest();
+		}else if(window.ActiveXObject){
+			xhr = new ActiveXObject('Microsoft.XMLHTTP');
+		}
+		console.log(xhr);
+		return xhr;
+	}
+</script>
+<body>
+	<input type="button" value="获取xml对象" onclick="createXHR();" >
+</body>
+</html>

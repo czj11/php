@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>抓不到的美女</title>
+
+	<style>
+           img{
+           		position: relative;//必须加
+				left:0px;
+				top:0px;
+           }
+	</style> 
+</head>
+<body>
+	<img src="mn.png" alt="">
+</body>
+<script>
+document.getElementsByTagName('img')[0].onclick = function(){alert('嫁给你了')};
+document.getElementsByTagName('img')[0].onmouseover = function(ev){
+this.style.left = ev.pageX+10+'px';
+this.style.top = ev.pageY+10 +'px';
+};
+
+</script>
+</html>

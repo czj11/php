@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax</title>
+	<script>
+	function createXHR(){
+		var xhr = null;
+		if(window.XMLHttpRequest){
+			xhr = new XMLHttpRequest();
+		}else if(window.ActiveXObject){
+			xhr = new ActiveXObject('Microsoft.XMLHTTP');
+		}
+		return xhr;
+	}
+	function vote(){
+		//制造xhr;
+		var xhr = createXHR();
+		//打开链接;
+		xhr.open('Get','./01.vote.php','true');
+		//发请求
+		xhr.send(null);
+
+
+	}
+
+	</script>
+</head>
+<body>
+	<div>
+		<p> <img src="up.png" alt=""> </p>
+		<p> <input type="button" value="投票" onclick="vote();"> </p>
+	</div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax</title>
+	<script>
+	function createXHR(){
+		var xhr = null;
+		if(window.XMLHttpRequest){
+			xhr = new XMLHttpRequest();
+		}else if(window.ActiveXObject){
+			xhr = new ActiveXObject('Microsoft.XMLHTTP');
+		}
+		return xhr;
+	}
+	function vote(){
+		//制造xhr;
+		var xhr = createXHR();
+		//打开链接;
+		xhr.open('Get','./02.vote.php','true');
+		//发请求
+		xhr.send(null);
+		//获得返回信息
+		//alert(xhr.responseText);
+		//绑定函数
+
+		
+		xhr.onreadystatechange = function(){
+			//请求成功只代表http请求完成
+			//只有200 ok 才是有意义的成功
+		if(this.readyState == 4){
+			//alert('请求成功了');
+			if (this.responseText == '1') {
+				alert('投票成功');
+			}else if (this.responseText == '0') {
+				alert('投票失败');
+			}else{
+				alert(this.resposeText);
+			}
+		}
+
+/*		var wt = document.getElementById('wait');
+		wt.innerHTML = wt.innerHTML +'现在是'+ this.readyState +"<br/>";*/
+		}
+		alert('hello');
+	}
+
+	</script>
+</head>
+<body>
+	<div>
+		<p> <img src="up.png" alt=""> </p>
+		<p> <input type="button" value="投票" onclick="vote();"> </p>
+	</div>
+	<div id="wait"></div>
+</body>
+</html>

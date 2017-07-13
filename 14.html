@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+	function createXHR(){
+		var xhr = null;
+		if(window.XMLHttpRequest){
+			xhr = new XMLHttpRequest();
+		}else if(window.ActiveXObject){
+			xhr = new ActiveXObject('Microsoft.XMLHTTP');
+		}
+		return xhr;
+	}
+
+
+
+	function t1(){
+		var xhr = createXHR();
+        xhr.open('GET','14.php','true');
+        xhr.onreadystatechange = function(){
+        	if (this.readyState == 4) {
+        		//alert(this.responseText);
+        		//alert(this.responseXML);
+        		/*alert(this.responseXML.getElementsByTagName('book')[0].children[0].wholeText);*/
+        		var xmldom = this.responseXML;
+        		var TL = xmldom.getElementsByTagName('book')[0];
+        		document.getElementsByName('tl')[0].value = TL.firstChild.firstChild.wholeText;
+        		document.getElementsByName('intro')[0].value = TL.lastChild.firstChild.wholeText;
+        	}
+        }
+        xhr.send(null);
+	}
+	function t2(){
+
+	}
+
+	</script>
+</head>
+<body>
+	书名：<input type="text" name="tl" id="">
+	简介：<input type="text" name="intro" id="">
+	<input type="button"  value = '返回值1' onclick="t1();">
+	<input type="button"  value = '返回值2' onclick="t2();">
+</body>
+</html>

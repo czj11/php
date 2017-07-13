@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+	function createXHR(){
+		var xhr = null;
+		if(window.XMLHttpRequest){
+			xhr = new XMLHttpRequest();
+		}else if(window.ActiveXObject){
+			xhr = new ActiveXObject('Microsoft.XMLHTTP');
+		}
+		return xhr;
+	}
+	function t1(){
+		var xhr = createXHR();
+        xhr.open('GET','14.php','true');
+        xhr.onreadystatechange = function(){
+        	if (this.readyState == 4) {
+        	
+        	}
+        }
+        xhr.send(null);
+	}
+	//html
+	function t2(){
+		var xhr = createXHR();
+        xhr.open('GET','15.php','true');
+        xhr.onreadystatechange = function(){
+        	if (this.readyState == 4) {
+        	
+        	document.getElementById('news').innerHTML = this.responseText
+         	}
+        }
+        xhr.send(null);
+	}
+	function t3(){
+		var xhr = createXHR();
+        xhr.open('GET','15.json.php','true');
+        xhr.onreadystatechange = function(){
+        	if (this.readyState == 4) {
+        	alert(this.responseText) ;
+        	}
+        }
+        xhr.send(null);
+	}
+	</script>
+</head>
+<body>
+	书名：<input type="text" name="tl" id="">
+	简介：<input type="text" name="intro" id="">
+	<input type="button"  value = '返回值xml' onclick="t1();">
+	<input type="button"  value = '返回值html' onclick="t2();">
+	<input type="button"  value = '返回值json' onclick="t3();">
+	<div id="news"></div>
+</body>
+</html>

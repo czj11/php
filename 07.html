@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>五子棋</title>
+	<style>
+		table{
+			width:400px;
+			height:400px;
+			border-collapse: collapse;
+			background: brown;
+
+		}
+
+		td{
+			border:1px solid gray;
+		}
+	</style>
+</head>
+<body>
+	<h1>事件委托</h1>
+	<table>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	</table>
+</body>
+<script>
+var num = 0;
+document.getElementsByTagName('table')[0].onclick = function(ev){
+ev.target.style.background = num++%2?'black':'white';
+};
+
+/*var tds = document.getElementsByTagName('td');
+var i = 0;
+while (i<tds.length){
+	tds[i].onclick = function(){
+		tds[i].style.background = 'black';
+		this.style.background = 'black';
+	}
+	i++;
+}*/
+
+</script>
+</html>

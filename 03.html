@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+	function t1(){
+		document.getElementsByName('username')[0].style.border= '1px solid black';
+	}
+	function t2(){
+		document.getElementsByName('username')[0].style.border= '';
+	}
+	</script>
+</head>
+<body>
+	<p>用户名
+	<input type="text" name="username" id="" onfocus="t1();" onblur="t2();">
+	</p>
+	<p>邮件
+	<input type="text" name="email" >
+	</p>
+</body>
+</html>

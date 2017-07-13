@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src= 'http://libs.baidu.com/jquery/1.7.2/jquery.min.js'>
+
+	</script>
+
+	<script>
+		function  ajaxup(){
+			var ifname = 'up' + Math.random();
+			$('<iframe name ="'+ifname+'"></iframe>').appendTo($('body'));
+			$('form.first').attr('target',ifname);
+			return false;
+		}
+	</script>
+</head>
+<body>
+	<h1>iframe 模拟Ajax文件上传效果</h1>
+	<form action="up.php" method="post" enctype="multipart/form-data" onsubmit="return ajaxup();">
+
+		<p><input type="file" name="pic" id=""></p>
+		<p><input type="submit" value='提交'></p>
+
+
+
+	</form>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+	function bang(){
+		var inp = document.getElementsByName('time')[0];
+		var time = parseInt(inp.value)-1;
+		inp.value = time;
+		if (time==0) {
+			document.getElementsByTagName('img')[0].src='warn.png';
+			clearInterval(clock);
+		}
+	}
+	var clock = setInterval('bang()',1000);
+
+	</script>
+
+</head>
+<body>
+	<h1>定时器</h1>
+	<input type="button" name="time" value="5">
+	<img src="boom.png" alt="">
+</body>
+</html>
